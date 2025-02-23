@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { AppDispatch, RootState } from "../store/store";
 import { fetchUsers, deleteUser, setSearchQuery } from "../store/userSlice";
-import { PESAN } from "../constants";
+import { PESAN, TABLE_HEADERS } from "../constants";
 
 const UserList = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -19,7 +19,7 @@ const UserList = () => {
   }, []);
 
   useEffect(() => {
-    console.log("Nilai pencarian dari Redux:", searchQuery);
+    // console.log("Simpan search query pakai Redux:", searchQuery);
   }, [searchQuery]);
 
   const handleDelete = (id: number) => {
@@ -49,10 +49,6 @@ const UserList = () => {
           value={searchQuery}
           onChange={(e) => {
             dispatch(setSearchQuery(e.target.value));
-            console.log(
-              "Memperbarui nilai pencarian di Redux:",
-              e.target.value,
-            );
           }}
         />
       </div>
@@ -62,22 +58,22 @@ const UserList = () => {
           <thead className="bg-gray-50 text-xs text-gray-700 uppercase">
             <tr>
               <th scope="col" className="px-6 py-3">
-                ID
+                {TABLE_HEADERS.ID}
               </th>
               <th scope="col" className="px-6 py-3">
-                Nama
+                {TABLE_HEADERS.NAMA}
               </th>
               <th scope="col" className="px-6 py-3">
-                Username
+                {TABLE_HEADERS.USERNAME}
               </th>
               <th scope="col" className="px-6 py-3">
-                Email
+                {TABLE_HEADERS.EMAIL}
               </th>
               <th scope="col" className="px-6 py-3">
-                Company
+                {TABLE_HEADERS.COMPANY}
               </th>
               <th scope="col" className="px-6 py-3">
-                Action
+                {TABLE_HEADERS.ACTION}
               </th>
             </tr>
           </thead>

@@ -15,13 +15,12 @@ export const fetchUsers = createAsyncThunk<User[]>(
   async () => {
     try {
       const response = await axios.get<User[]>(API_URL);
-      console.log("Data awal berhasil diambil dari API:", response.data);
       return response.data;
     } catch (error) {
       console.error("Gagal mengambil data awal:", error);
       throw error;
     }
-  }
+  },
 );
 
 const userSlice = createSlice({
@@ -30,32 +29,28 @@ const userSlice = createSlice({
   reducers: {
     setSearchQuery: (state, action: PayloadAction<string>) => {
       state.searchQuery = action.payload;
-      console.log("Redux: Nilai pencarian diperbarui ke:", action.payload);
     },
     addUser: (state, action: PayloadAction<Omit<User, "id">>) => {
       const maxId = state.users.reduce(
         (max, user) => Math.max(max, user.id),
-        0
+        0,
       );
       const newUser = {
         ...action.payload,
         id: maxId + 1,
       };
       state.users.push(newUser);
-      console.log("Pengguna baru ditambahkan ke Redux store:", newUser);
     },
     updateUser: (state, action: PayloadAction<User>) => {
       const index = state.users.findIndex(
-        (user) => user.id === action.payload.id
+        (user) => user.id === action.payload.id,
       );
       if (index !== -1) {
         state.users[index] = action.payload;
-        console.log("Data pengguna diperbarui di Redux store:", action.payload);
       }
     },
     deleteUser: (state, action: PayloadAction<number>) => {
       state.users = state.users.filter((user) => user.id !== action.payload);
-      console.log("Pengguna dihapus dari Redux store, ID:", action.payload);
     },
   },
   extraReducers: (builder) => {
@@ -67,7 +62,6 @@ const userSlice = createSlice({
       .addCase(fetchUsers.fulfilled, (state, action) => {
         state.loading = false;
         state.users = action.payload;
-        console.log("Data pengguna dimuat ke Redux store:", action.payload);
       })
       .addCase(fetchUsers.rejected, (state, action) => {
         state.loading = false;

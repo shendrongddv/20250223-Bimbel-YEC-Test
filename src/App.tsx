@@ -6,13 +6,13 @@ import UserForm from "./components/UserForm";
 function App() {
   return (
     <Router>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<UserList />} />
-          <Route path="/add" element={<UserForm />} />
-          <Route path="/edit/:id" element={<UserForm />} />
-        </Routes>
-      </Layout>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<UserList />} />
+          <Route path="add" element={<UserForm />} />
+          <Route path="edit/:id" element={<UserForm />} />
+        </Route>
+      </Routes>
     </Router>
   );
 }

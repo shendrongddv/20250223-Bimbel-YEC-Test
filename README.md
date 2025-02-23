@@ -2,49 +2,101 @@
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Clone the repository
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+git clone https://github.com/your-repo-url.git
+cd your-repo-directory
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Install dependencies
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Using pnpm:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+pnpm install
 ```
+
+Using npm:
+
+```bash
+npm install
+```
+
+Using yarn:
+
+```bash
+yarn install
+```
+
+### Run the development server
+
+Using pnpm:
+
+```bash
+pnpm run dev
+```
+
+Using npm:
+
+```bash
+npm run dev
+```
+
+Using yarn:
+
+```bash
+yarn dev
+```
+
+## Technical Test: User Management Dashboard
+
+Buatlah aplikasi sederhana "User Management Dashboard" yang memungkinkan pengguna untuk melihat, menambahkan, mengedit, dan menghapus data pengguna. Data pengguna akan diambil dari API eksternal menggunakan Axios dan dikelola menggunakan Redux untuk state management.
+
+### Spesifikasi
+
+#### Halaman Utama (User List)
+
+[✔️] Menampilkan daftar pengguna dalam bentuk tabel
+[✔️] Data diambil dari API: https://jsonplaceholder.typicode.com/users  
+[✔️] Kolom tabel: ID, Nama, Email, Perusahaan, Aksi (Edit & Hapus)  
+[✔️] Fitur pencarian berdasarkan nama dan email (menggunakan Redux untuk menyimpan state pencarian)
+
+#### Halaman Tambah/Edit Pengguna
+
+[✔️] Form berisi input: Nama, Email, Alamat, dan Perusahaan  
+[✔️] Jika form dibuka dari tombol Edit, data yang diisi sesuai dengan data pengguna yang dipilih  
+[✔️] Jika form dibuka dari tombol Tambah Pengguna, maka form kosong  
+[✔️] Submit form akan mengubah state di Redux
+
+#### Fitur Hapus Pengguna
+
+[✔️] Terdapat tombol "Hapus" di setiap baris tabel  
+[✔️] Menghapus pengguna akan menghapus data dari Redux state (tidak perlu memanggil API delete)  
+[✔️] Konfirmasi sebelum menghapus data (gunakan window.confirm atau modal)
+
+### Teknologi yang Wajib Digunakan
+
+[✔️] React.js untuk UI  
+[✔️] Axios untuk mengambil data dari API  
+[✔️] Redux sebagai state management (gunakan Redux Toolkit lebih baik)  
+[✔️] React Router untuk navigasi antar halaman  
+[✔️] Tailwind CSS / Bootstrap diperbolehkan untuk styling
+
+### Kriteria Penilaian
+
+- Kode bersih, terstruktur, dan mudah dibaca
+- Menggunakan Redux dengan baik untuk state management
+- Menggunakan Axios dengan efisien untuk komunikasi API
+- Aplikasi berjalan dengan baik sesuai dengan spesifikasi
+- UI responsif dan memiliki pengalaman pengguna yang baik
+- Pastikan Validasi Field Berjalan dengan baik
+
+### Ketentuan Pengumpulan
+
+- Kumpulkan di repository github
+- Pastikan akses repository public
+- Sertakan panduan Readme untuk init (lebih baik jika sudah di docker)
+- Kirimkan link tersebut pada HR Brofesional melalui WA 0823-2842-1072 (Anggi)

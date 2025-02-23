@@ -1,4 +1,3 @@
-// Konstanta yang digunakan di aplikasi
 export const API_URL = "https://jsonplaceholder.typicode.com/users";
 
 export const PESAN = {
@@ -29,4 +28,13 @@ export const INITIAL_USER = {
     catchPhrase: "",
     bs: "",
   },
+};
+
+export const TABLE_HEADERS = {
+  ID: "ID",
+  NAMA: "Nama",
+  USERNAME: "Username",
+  EMAIL: "Email",
+  COMPANY: "Perusahaan",
+  ACTION: "Aksi",
 };
