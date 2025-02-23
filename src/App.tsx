@@ -1,18 +1,18 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
 import UserList from "./components/UserList";
 import UserForm from "./components/UserForm";
 
 function App() {
   return (
     <Router>
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="mb-8 text-3xl font-bold">User Management Dashboard</h1>
+      <Layout>
         <Routes>
           <Route path="/" element={<UserList />} />
           <Route path="/add" element={<UserForm />} />
           <Route path="/edit/:id" element={<UserForm />} />
         </Routes>
-      </div>
+      </Layout>
     </Router>
   );
 }

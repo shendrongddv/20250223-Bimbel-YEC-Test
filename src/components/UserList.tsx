@@ -38,12 +38,14 @@ const UserList = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div>
-      <div className="mb-4 flex justify-between">
+    <div className="container space-y-12">
+      <div className="mb-4 flex items-center justify-between gap-2">
+        <h2 className="hidden text-2xl font-bold md:block">User List</h2>
+
         <input
           type="text"
           placeholder="Cari berdasarkan nama atau email..."
-          className="rounded border p-2"
+          className="block w-full max-w-sm rounded-lg border border-gray-200 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
           value={searchQuery}
           onChange={(e) => {
             dispatch(setSearchQuery(e.target.value));
@@ -53,15 +55,9 @@ const UserList = () => {
             );
           }}
         />
-        <Link
-          to="/add"
-          className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
-        >
-          Tambah Pengguna
-        </Link>
       </div>
 
-      <div className="w-full overflow-x-auto border border-gray-200 shadow-md sm:rounded-lg">
+      <div className="w-full overflow-x-auto rounded-lg border border-gray-200">
         <table className="w-full text-left text-sm text-gray-500">
           <thead className="bg-gray-50 text-xs text-gray-700 uppercase">
             <tr>
@@ -78,18 +74,18 @@ const UserList = () => {
                 Email
               </th>
               <th scope="col" className="px-6 py-3">
-                Perusahaan
+                Company
               </th>
               <th scope="col" className="px-6 py-3">
-                Aksi
+                Action
               </th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="text-gray-700">
             {filteredUsers.map((user) => (
               <tr
                 key={user.id}
-                className="border-b border-gray-50 bg-white last:border-b-0 hover:bg-gray-50"
+                className="border-b border-gray-200 bg-white last:border-0 hover:bg-gray-50"
               >
                 <td className="px-6 py-4">{user.id}</td>
                 <td className="px-6 py-4">{user.name}</td>
@@ -107,7 +103,7 @@ const UserList = () => {
                     onClick={() => handleDelete(user.id)}
                     className="font-medium text-red-600 hover:underline"
                   >
-                    Hapus
+                    Delete
                   </button>
                 </td>
               </tr>

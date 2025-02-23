@@ -13,7 +13,7 @@ const UserForm = () => {
   const users = useSelector((state: RootState) => state.users.users);
 
   const [formData, setFormData] = useState<Omit<User, "id"> | User>(
-    INITIAL_USER
+    INITIAL_USER,
   );
 
   useEffect(() => {
@@ -51,101 +51,122 @@ const UserForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-lg mx-auto">
-      <div className="mb-4">
-        <label className="block mb-2">Nama:</label>
-        <input
-          type="text"
-          value={formData.name}
-          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          className="w-full p-2 border rounded"
-          required
-        />
-      </div>
+    <div className="mx-auto max-w-lg space-y-8">
+      <button
+        type="button"
+        onClick={() => navigate("/")}
+        className="flex cursor-pointer items-center justify-center gap-x-2 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-800 hover:bg-gray-50 focus:bg-gray-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
+      >
+        Back
+      </button>
+      <form onSubmit={handleSubmit}>
+        <div className="mb-4">
+          <label className="mb-2 block text-sm font-medium dark:text-white">
+            Nama
+          </label>
+          <input
+            type="text"
+            value={formData.name}
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            className="block w-full rounded-lg border border-gray-200 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+            required
+          />
+        </div>
 
-      <div className="mb-4">
-        <label className="block mb-2">Username:</label>
-        <input
-          type="text"
-          value={formData.username}
-          onChange={(e) =>
-            setFormData({ ...formData, username: e.target.value })
-          }
-          className="w-full p-2 border rounded"
-          required
-        />
-      </div>
+        <div className="mb-4">
+          <label className="mb-2 block text-sm font-medium dark:text-white">
+            Username
+          </label>
+          <input
+            type="text"
+            value={formData.username}
+            onChange={(e) =>
+              setFormData({ ...formData, username: e.target.value })
+            }
+            className="block w-full rounded-lg border border-gray-200 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+            required
+          />
+        </div>
 
-      <div className="mb-4">
-        <label className="block mb-2">Email:</label>
-        <input
-          type="email"
-          value={formData.email}
-          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          className="w-full p-2 border rounded"
-          required
-        />
-      </div>
+        <div className="mb-4">
+          <label className="mb-2 block text-sm font-medium dark:text-white">
+            Email
+          </label>
+          <input
+            type="email"
+            value={formData.email}
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
+            className="block w-full rounded-lg border border-gray-200 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+            required
+          />
+        </div>
 
-      <div className="mb-4">
-        <label className="block mb-2">Alamat:</label>
-        <input
-          type="text"
-          value={formData.address.street}
-          onChange={(e) =>
-            setFormData({
-              ...formData,
-              address: { ...formData.address, street: e.target.value },
-            })
-          }
-          placeholder="Jalan"
-          className="w-full p-2 border rounded mb-2"
-        />
-        <input
-          type="text"
-          value={formData.address.city}
-          onChange={(e) =>
-            setFormData({
-              ...formData,
-              address: { ...formData.address, city: e.target.value },
-            })
-          }
-          placeholder="Kota"
-          className="w-full p-2 border rounded"
-        />
-      </div>
+        <div className="mb-4">
+          <label className="mb-2 block text-sm font-medium dark:text-white">
+            Alamat
+          </label>
+          <input
+            type="text"
+            value={formData.address.street}
+            onChange={(e) =>
+              setFormData({
+                ...formData,
+                address: { ...formData.address, street: e.target.value },
+              })
+            }
+            placeholder="Jalan"
+            className="block w-full rounded-lg border border-gray-200 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+          />
+          <input
+            type="text"
+            value={formData.address.city}
+            onChange={(e) =>
+              setFormData({
+                ...formData,
+                address: { ...formData.address, city: e.target.value },
+              })
+            }
+            placeholder="Kota"
+            className="mt-2 block w-full rounded-lg border border-gray-200 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+          />
+        </div>
 
-      <div className="mb-4">
-        <label className="block mb-2">Perusahaan:</label>
-        <input
-          type="text"
-          value={formData.company.name}
-          onChange={(e) =>
-            setFormData({
-              ...formData,
-              company: { ...formData.company, name: e.target.value },
-            })
-          }
-          className="w-full p-2 border rounded"
-        />
-      </div>
+        <div className="mb-4">
+          <label className="mb-2 block text-sm font-medium dark:text-white">
+            Perusahaan
+          </label>
+          <input
+            type="text"
+            value={formData.company.name}
+            onChange={(e) =>
+              setFormData({
+                ...formData,
+                company: { ...formData.company, name: e.target.value },
+              })
+            }
+            className="block w-full rounded-lg border border-gray-200 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+          />
+        </div>
 
-      <div className="flex gap-4">
-        <button
-          type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-        >
-          {id ? "Update" : "Tambah"} Pengguna
-        </button>
-        <button
-          type="button"
-          onClick={() => navigate("/")}
-          className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
-        >
-          Batal
-        </button>
-      </div>
-    </form>
+        <div className="grid grid-cols-2 gap-2 sm:flex sm:items-center sm:justify-between">
+          <button
+            type="button"
+            onClick={() => navigate("/")}
+            className="flex cursor-pointer items-center justify-center gap-x-2 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-800 hover:bg-gray-50 focus:bg-gray-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            className="flex cursor-pointer items-center justify-center gap-x-2 rounded-lg border border-transparent bg-blue-600 px-4 py-3 text-sm font-medium text-white hover:bg-blue-700 focus:bg-blue-700 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+          >
+            {id ? "Update" : "Save"}
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };
 
