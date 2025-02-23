@@ -45,7 +45,7 @@ const UserList = () => {
         <input
           type="text"
           placeholder="Cari berdasarkan nama atau email..."
-          className="block w-full max-w-sm rounded-lg border border-gray-200 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+          className="block w-full max-w-sm rounded-lg border border-gray-200 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50"
           value={searchQuery}
           onChange={(e) => {
             dispatch(setSearchQuery(e.target.value));
