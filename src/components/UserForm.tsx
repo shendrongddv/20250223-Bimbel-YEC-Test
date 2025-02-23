@@ -61,9 +61,7 @@ const UserForm = () => {
       </button>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label className="mb-2 block text-sm font-medium dark:text-white">
-            Nama
-          </label>
+          <label className="mb-2 block text-sm font-medium">Nama</label>
           <input
             type="text"
             value={formData.name}
@@ -74,9 +72,7 @@ const UserForm = () => {
         </div>
 
         <div className="mb-4">
-          <label className="mb-2 block text-sm font-medium dark:text-white">
-            Username
-          </label>
+          <label className="mb-2 block text-sm font-medium">Username</label>
           <input
             type="text"
             value={formData.username}
@@ -89,9 +85,7 @@ const UserForm = () => {
         </div>
 
         <div className="mb-4">
-          <label className="mb-2 block text-sm font-medium dark:text-white">
-            Email
-          </label>
+          <label className="mb-2 block text-sm font-medium">Email</label>
           <input
             type="email"
             value={formData.email}
@@ -104,9 +98,7 @@ const UserForm = () => {
         </div>
 
         <div className="mb-4">
-          <label className="mb-2 block text-sm font-medium dark:text-white">
-            Alamat
-          </label>
+          <label className="mb-2 block text-sm font-medium">Alamat</label>
           <input
             type="text"
             value={formData.address.street}
@@ -134,9 +126,7 @@ const UserForm = () => {
         </div>
 
         <div className="mb-4">
-          <label className="mb-2 block text-sm font-medium dark:text-white">
-            Perusahaan
-          </label>
+          <label className="mb-2 block text-sm font-medium">Perusahaan</label>
           <input
             type="text"
             value={formData.company.name}
