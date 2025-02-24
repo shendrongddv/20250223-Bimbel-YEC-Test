@@ -34,7 +34,7 @@ const UserList = () => {
       user.email.toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
-  if (loading) return <div>Memuat...</div>;
+  if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
   return (

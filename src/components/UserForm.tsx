@@ -68,7 +68,7 @@ const UserForm = () => {
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Informasi Dasar */}
         <div className="space-y-4 rounded-lg border border-gray-200 bg-white p-6">
-          <h2 className="text-lg font-semibold">Informasi Dasar</h2>
+          <h2 className="text-lg font-semibold">Profil</h2>
 
           <div className="grid gap-4 md:grid-cols-2">
             <div>
@@ -232,7 +232,7 @@ const UserForm = () => {
 
         {/* Informasi Perusahaan */}
         <div className="space-y-4 rounded-lg border border-gray-200 bg-white p-6">
-          <h2 className="text-lg font-semibold">Informasi Perusahaan</h2>
+          <h2 className="text-lg font-semibold">Perusahaan</h2>
 
           <div className="grid gap-4">
             <div>
@@ -269,7 +269,7 @@ const UserForm = () => {
                     },
                   })
                 }
-                placeholder="Slogan perusahaan"
+                placeholder="Catch Phrase"
                 className="block w-full rounded-lg border border-gray-200 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500"
               />
             </div>
@@ -287,7 +287,7 @@ const UserForm = () => {
                     company: { ...formData.company, bs: e.target.value },
                   })
                 }
-                placeholder="Business strategy"
+                placeholder="Business slogan?"
                 className="block w-full rounded-lg border border-gray-200 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500"
               />
             </div>
